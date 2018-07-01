@@ -1,7 +1,7 @@
 
-
-def count_words(filename):
-    filename = open(filename)
+import sys
+def count_words():
+    filename = open(sys.argv[1])
     dict_words = {}
     for line in filename:
         line = line.rstrip()
@@ -17,5 +17,5 @@ def count_words(filename):
     for key in dict_words:
         print(key, dict_words[key])
 
-count_words("twain.txt")
+count_words()
 
