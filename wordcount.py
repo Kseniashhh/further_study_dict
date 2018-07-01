@@ -1,6 +1,7 @@
-filename = open("test.txt")
+
 
 def count_words(filename):
+    filename = open(filename)
     dict_words = {}
     for line in filename:
         line = line.rstrip()
@@ -11,3 +12,5 @@ def count_words(filename):
 
     for key in dict_words:
         print(key, dict_words[key])
+
+count_words("twain.txt")
