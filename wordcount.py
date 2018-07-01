@@ -17,5 +17,28 @@ def count_words():
     for key, value in dict_words.items():
         print("{} : {}".format(key, value))
 
-count_words()
+#count_words()
 
+
+
+import sys
+import collections
+
+def count_words_w_count():
+    filename = open(sys.argv[1])
+    full_text= []
+    for line in filename:
+        line = line.rstrip()
+        line = line.split(" ")
+        full_text.extend(line)
+    for i in range(len(full_text)):
+        for letter in full_text[i]:
+            if not letter.isalpha():
+                full_text[i] = full_text[i].replace(letter,"")
+        full_text[i]=full_text[i].lower()
+    cnt = collections.Counter(full_text)
+
+    for key, value in cnt.items():
+        print("{} : {}".format(key, value))
+
+count_words_w_count()
