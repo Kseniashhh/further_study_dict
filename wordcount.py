@@ -14,8 +14,8 @@ def count_words():
             dict_words[word] = dict_words.get(word,0) + 1
 
 
-    for key in dict_words:
-        print(key, dict_words[key])
+    for key, value in dict_words.items():
+        print("{} : {}".format(key, value))
 
 count_words()
 
