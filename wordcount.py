@@ -23,7 +23,7 @@ def count_words():
 
 import sys
 import collections
-
+import operator
 def count_words_w_count():
     filename = open(sys.argv[1])
     full_text= []
@@ -38,7 +38,31 @@ def count_words_w_count():
         full_text[i]=full_text[i].lower()
     cnt = collections.Counter(full_text)
 
-    for key, value in cnt.items():
-        print("{} : {}".format(key, value))
+    #1
+    # for item in sorted(cnt):
+    #     print("{} : {}".format(item, cnt[item]))
+
+    #2
+    # sort_cnt = sorted(cnt.items(),key=lambda kv: kv[1])
+    # for item in sort_cnt:
+    #     #print("{} : {}".format(item[0], item[1]))
+
+    #3
+    reverse_sort_cnt = []
+    sort_cnt = sorted(cnt.items(),key=lambda kv: kv[1])
+
+    for i in range(len(sort_cnt)):
+        reverse_sort_cnt.append(sort_cnt[len(sort_cnt)-1-i])
+
+    print (reverse_sort_cnt)
+
+    for tupl in reverse_sort_cnt:
+        if tupl[1] == ""
+    # for item in sorted(reverse_sort_cnt):
+
+    #     print("{} : {}".format(item, reverse_sort_cnt[item]))
+
+
+        #print ("{} : {}".format(sort_cnt[len(sort_cnt)-1-i][0], sort_cnt[len(sort_cnt)-1-i][1]))
 
 count_words_w_count()
